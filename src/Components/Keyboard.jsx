@@ -1,15 +1,29 @@
-function Keyboard(){
+function Keyboard({textArr,setTextArr}){
     const letterArr=["a", "b","c"];
 
+   function createLetterObj(letter, size=12, font="serif", color="blue"){
+    return{
+        letter,
+        size,
+        font,
+        color,
+    }
+   }
+
     function handleLetterClick(letter){
-        console.log(letter);
+        setTextArr(prevArr=>{
+            return [...prevArr,createLetterObj(letter
+            // , currentSize, currentFont, color
+        )]}
+        );
     }
 
     return (
         <>
             {letterArr.map(letter=>{
-                <button onClick={()=>handleLetterClick(letter)}>{letter}</button>
-            })};
+               return <button key={letter} onClick={()=>handleLetterClick(letter)}>{letter}</button>
+            })}
+            
         </>
     );
 }
