@@ -21,10 +21,9 @@ function Keyboard({textArr,setTextArr, currentStyle}){
 
     return (
         <>
-            {letterArr.map(letter=>{
-               return <button key={letter} onClick={()=>handleLetterClick(letter)}>{letter}</button>
+            {letterArr.map((letter) => {
+                return <button key={letter} onClick={() => handleLetterClick(letter)}>{letter}</button>
             })}
-            
         </>
     );
 }
