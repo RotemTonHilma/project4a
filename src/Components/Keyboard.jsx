@@ -1,7 +1,7 @@
-function Keyboard({textArr,setTextArr}){
+function Keyboard({textArr,setTextArr, currentStyle}){
     const letterArr=["a", "b","c"];
 
-   function createLetterObj(letter, size=12, font="serif", color="blue"){
+   function createLetterObj(letter, size, font, color){
     return{
         letter,
         size,
@@ -12,8 +12,9 @@ function Keyboard({textArr,setTextArr}){
 
     function handleLetterClick(letter){
         setTextArr(prevArr=>{
+            console.log(currentStyle);
             return [...prevArr,createLetterObj(letter
-            // , currentSize, currentFont, color
+            , currentStyle.currentSize, currentStyle.currentFont, currentStyle.currentColor
         )]}
         );
     }
