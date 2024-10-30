@@ -1,15 +1,15 @@
-function Keyboard(){
-    const letterArr=["a", "b","c"];
+function Keyboard() {
+    const letterArr = ["a", "b", "c"];
 
-    function handleLetterClick(letter){
+    function handleLetterClick(letter) {
         console.log(letter);
     }
 
     return (
         <>
-            {letterArr.map(letter=>{
-                <button onClick={()=>handleLetterClick(letter)}>{letter}</button>
-            })};
+            {letterArr.map((letter) => {
+                return <button key={letter} onClick={() => handleLetterClick(letter)}>{letter}</button>
+            })}
         </>
     );
 }
