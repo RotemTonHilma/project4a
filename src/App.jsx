@@ -20,13 +20,8 @@ function App() {
 
 
   const colorArr = ["hotpink", "magenta", "mistyrose", "plum"];
-<<<<<<< HEAD
-  const fontStyleArr = ["serif", "sans-serif", "Courier New", "Times New Roman"];
-  const fontSizeArr = [12,  16,  20,  28,  36];
-=======
   const fontStyleArr = ["serif", "sans-serif", "fantasy", "monospace"];
   const fontSizeArr = [12, 16, 20, 28, 36];
->>>>>>> c299c1ea85be96df672c353ecb1643b0ef144f00
 
 
   return (<div>
