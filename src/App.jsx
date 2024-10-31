@@ -3,7 +3,7 @@ import Keyboard from './Components/Keyboard';
 
 function App() {
   const [textArr, setTextArr] = useState([]);
-  let styleOverride = false;
+  let [styleOverride, setStyleOverride]= useState(false);
 
   let currentStyle = textArr.length ?
     {
@@ -16,19 +16,27 @@ function App() {
       fontSize: 20,
       color: "hotpink"
     }
+    let styleAll ={
+        textTransform : "uppercase",
+    }
+function toggleStyleOverride (){
+    setStyleOverride(prev=>!prev);
+}
+
 
 
   const colorArr = ["hotpink", "magenta", "mistyrose", "plum"];
   const fontStyleArr = ["serif", "sans-serif", "fantasy", "monospace"];
   const fontSizeArr = [12, 16, 20, 28, 36];
+  const specEffArr = []
 
 
   return (<div>
 
-    <main id="textbox">{textArr.map(({ letter, color, font, size }, index) => {
+    <main id="textbox">{textArr.map(({ letter, color, font, size }, index, ) => {
       return <span key={index}
         style={!styleOverride ? { color, fontSize: size, fontFamily: font }
-          : null}>
+          : { color, fontSize: size, fontFamily: font ,...styleAll}}>
         {letter}
       </span>
     })}
@@ -56,7 +64,11 @@ function App() {
                 return <button key={index} onClick={()=>currentStyle.color=color}>{color}</button>;
             })}
         </div>
-        <div id="special"></div>
+        <div id="special">
+            <div>
+                <button onClick={toggleStyleOverride}> Capitalize all text</button>
+            </div>
+        </div>
     </div>
 
   </div>);
