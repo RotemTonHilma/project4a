@@ -49,7 +49,7 @@ function App() {
     <main id="textbox">{textArr.map(({ letter, color, font, size }, index,) => {
       return <span key={index}
         style=
-        {{ color, fontSize: size, fontFamily: font, ...(!capsOverride && { textTransform: "uppercase" }), ...(!colorOverride && { color: currentStyle.color }) }}>
+        {{ color, fontSize: size, fontFamily: font, ...(capsOverride && { textTransform: "uppercase" }), ...(colorOverride && { color: currentStyle.color }) }}>
         {letter}
       </span>
     })}
