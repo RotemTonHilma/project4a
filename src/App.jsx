@@ -19,7 +19,7 @@ function App() {
 
 
   const colorArr = ["hotpink", "magenta", "mistyrose", "plum"];
-  const fontStyleArr = ["Arial", "Georgia", "Courier New", "Times New Roman"];
+  const fontStyleArr = ["serif", "sans-serif", "Courier New", "Times New Roman"];
   const fontSizeArr = [12,  16,  20,  28,  36];
 
 
