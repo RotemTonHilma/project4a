@@ -61,7 +61,7 @@ function App() {
       <div id="keyboard"> <Keyboard textArr={textArr} setTextArr={setTextArr} currentStyle={currentStyle} language={currentLang} /> </div>
       <div id="languages">
         {langArr.map((lang) => {
-          return <button key={lang} onClick={() => handleChangeLang(lang)}>{lang}</button>;
+          return <button className="button" key={lang} onClick={() => handleChangeLang(lang)}>{lang}</button>;
         })}
       </div>
       <div id="spacing">
