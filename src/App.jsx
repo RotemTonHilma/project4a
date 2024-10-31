@@ -3,7 +3,7 @@ import Keyboard from './Components/Keyboard';
 
 function App() {
   const [textArr, setTextArr] = useState([]);
-  let [styleOverride, setStyleOverride]= useState(false);
+  
 
   let currentStyle = textArr.length ?
     {
@@ -16,27 +16,31 @@ function App() {
       fontSize: 20,
       color: "hotpink"
     }
-    let styleAll ={
-        textTransform : "uppercase",
-    }
-function toggleStyleOverride (){
-    setStyleOverride(prev=>!prev);
-}
 
+
+    let [capsOverride, setCapsOverride]= useState(false);
+    function toggleCapsOverride (){
+        setCapsOverride(prev=>!prev);
+    }
+    let [colorOverride, setColorOverride]= useState(false);
+    function toggleColorOverride (){
+        setColorOverride(prev=>!prev);
+    }
 
 
   const colorArr = ["hotpink", "magenta", "mistyrose", "plum"];
   const fontStyleArr = ["serif", "sans-serif", "fantasy", "monospace"];
   const fontSizeArr = [12, 16, 20, 28, 36];
   const specEffArr = []
-
+// !capsOverride ? { color, fontSize: size, fontFamily: font }
+//           : { color, fontSize: size, fontFamily: font ,...styleAll}
 
   return (<div>
 
     <main id="textbox">{textArr.map(({ letter, color, font, size }, index, ) => {
       return <span key={index}
-        style={!styleOverride ? { color, fontSize: size, fontFamily: font }
-          : { color, fontSize: size, fontFamily: font ,...styleAll}}>
+        style=
+        {{color, fontSize: size, fontFamily: font, ...(!capsOverride && {textTransform: "uppercase"}), ...(!colorOverride && {color:currentStyle.color })}}>
         {letter}
       </span>
     })}
@@ -66,7 +70,8 @@ function toggleStyleOverride (){
         </div>
         <div id="special">
             <div>
-                <button onClick={toggleStyleOverride}> Capitalize all text</button>
+                <button onClick={toggleCapsOverride}> Caps all text</button>
+                <button onClick={toggleColorOverride}> Color all text</button>
             </div>
         </div>
     </div>
