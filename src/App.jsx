@@ -28,7 +28,7 @@ function App() {
     }
 
 
-  const colorArr = ["hotpink", "magenta", "mistyrose", "plum"];
+  const colorArr = ["hotpink", "magenta", "mistyrose", "plum", "peachpuff"];
   const fontStyleArr = ["serif", "sans-serif", "fantasy", "monospace"];
   const fontSizeArr = [12, 16, 20, 28, 36];
   const specEffArr = []
