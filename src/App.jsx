@@ -6,7 +6,7 @@ function App() {
 
   const langArr = ["English", "עברית"];
   const [currentLang, setCurrentLang] = useState(langArr[0]);
-  let styleOverride = false;
+
 
   let currentStyle = textArr.length ?
     {
@@ -19,6 +19,16 @@ function App() {
       fontSize: 20,
       color: "hotpink"
     }
+
+
+  let [capsOverride, setCapsOverride] = useState(false);
+  function toggleCapsOverride() {
+    setCapsOverride(prev => !prev);
+  }
+  let [colorOverride, setColorOverride] = useState(false);
+  function toggleColorOverride() {
+    setColorOverride(prev => !prev);
+  }
 
 
   const colorArr = ["hotpink", "magenta", "mistyrose", "plum"];
@@ -36,10 +46,10 @@ function App() {
 
   return (<div>
 
-    <main id="textbox">{textArr.map(({ letter, color, font, size }, index) => {
+    <main id="textbox">{textArr.map(({ letter, color, font, size }, index,) => {
       return <span key={index}
-        style={!styleOverride ? { color, fontSize: size, fontFamily: font }
-          : null}>
+        style=
+        {{ color, fontSize: size, fontFamily: font, ...(!capsOverride && { textTransform: "uppercase" }), ...(!colorOverride && { color: currentStyle.color }) }}>
         {letter}
       </span>
     })}
@@ -75,7 +85,10 @@ function App() {
         })}
       </div>
       <div id="special">
-        <h1>Special</h1>
+        <div>
+          <button onClick={toggleCapsOverride}> Caps all text</button>
+          <button onClick={toggleColorOverride}> Color all text</button>
+        </div>
       </div>
     </div>
 
