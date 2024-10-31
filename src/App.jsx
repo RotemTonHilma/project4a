@@ -46,7 +46,7 @@ function App() {
         <div id="font">
             <h1>font</h1>
         {fontStyleArr.map((style, index)=>{
-                return <button key={index} onClick={()=>currentStyle.fontStyle=style}>{style}</button>;
+                return <button key={index} onClick={()=>currentStyle.fontFamily=style}>{style}</button>;
             })}
         </div>
         
