@@ -10,11 +10,11 @@ function Keyboard({textArr,setTextArr, currentStyle}){
     }
    }
 
-    function handleLetterClick(letter){
+    function handleLetterClick(letter, color, font, size){
         setTextArr(prevArr=>{
             console.log(currentStyle);
             return [...prevArr,createLetterObj(letter
-            , currentStyle.currentSize, currentStyle.currentFont, currentStyle.currentColor
+            , size, font, color
         )]}
         );
     }
@@ -22,7 +22,7 @@ function Keyboard({textArr,setTextArr, currentStyle}){
     return (
         <>
             {letterArr.map((letter) => {
-                return <button key={letter} onClick={() => handleLetterClick(letter)}>{letter}</button>
+                return <button key={letter} onClick={() => handleLetterClick(letter,currentStyle.color, currentStyle.fontFamily,currentStyle.fontSize)}>{letter}</button>
             })}
         </>
     );

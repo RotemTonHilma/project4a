@@ -13,9 +13,10 @@ function App() {
 
     return (<div>
 
-    <main id="textbox">{textArr.map(({letter},index)=>{
+    <main id="textbox">{textArr.map(({letter, color, font, size},index)=>{
         return <span key={index} 
-                    style={!styleOverride?currentStyle:null}>
+                    style={!styleOverride?{color, fontSize: size, fontFamily: font}
+                    :null}>
             {letter}
             </span>
     })}
