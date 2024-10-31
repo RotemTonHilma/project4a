@@ -21,13 +21,15 @@ function Buttons({ currentLang, setCurrentLang, capsOverride, setCapsOverride, c
 
     return (
         <>
+         <div id="spacing">
+         <button onClick={handlBackspace}>BackSpace</button>
             <div id="languages">
+                <h1>languages</h1>
                 {langArr.map((lang) => {
                     return <button key={lang} onClick={() => handleChangeLang(lang)}>{lang}</button>;
                 })}
             </div>
-            <div id="spacing">
-                <button onClick={handlBackspace}>BackSpace</button>
+           
             </div>
             <div id="size">
                 <h1>size</h1>
@@ -49,6 +51,7 @@ function Buttons({ currentLang, setCurrentLang, capsOverride, setCapsOverride, c
                 })}
             </div>
             <div id="special">
+                <h1>change all</h1>
                 <div>
                     <button onClick={toggleCapsOverride}> Caps all text</button>
                     <button onClick={toggleColorOverride}> Color all text</button>
