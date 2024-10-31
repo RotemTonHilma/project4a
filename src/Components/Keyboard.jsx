@@ -1,6 +1,15 @@
-function Keyboard({ textArr, setTextArr, currentStyle }) {
-    const letterArr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
-    ];
+function Keyboard({ textArr, setTextArr, currentStyle, language }) {
+    let letterArr;
+    switch (language) {
+        case "English": {
+            letterArr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "space"];
+            break;
+        }
+        case "עברית": {
+            letterArr = ["א", "ב", "ג", "ד", "ה", "ו", "ז", "ח", "ט", "י", "כ", "ל", "מ", "נ", "ס", "ע", "פ", "צ", "ק", "ר", "ש", "ת", "space"];
+            break;
+        }
+    }
 
     function createLetterObj(letter, size, font, color) {
         return {
@@ -12,9 +21,9 @@ function Keyboard({ textArr, setTextArr, currentStyle }) {
     }
 
     function handleLetterClick(letter, color, font, size) {
-        console.log(font);
+        let nextLetter = letter === "space" ? " " : letter;
         setTextArr(prevArr => {
-            return [...prevArr, createLetterObj(letter
+            return [...prevArr, createLetterObj(nextLetter
                 , size, font, color
             )]
         }
