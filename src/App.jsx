@@ -48,11 +48,12 @@ function App() {
   return (<div>
 
     <main id="textbox">{textArr.map(({ letter, color, font, size }, index,) => {
-      return <span key={index}
-        style=
-        {{ color, fontSize: size, fontFamily: font, ...(capsOverride && { textTransform: "uppercase" }), ...(colorOverride && { color: currentStyle.color }) }}>
-        {letter}
-      </span>
+      return (letter === "enter" ? <br key={index}></br>
+        : <span key={index}
+          style=
+          {{ color, fontSize: size, fontFamily: font, ...(capsOverride && { textTransform: "uppercase" }), ...(colorOverride && { color: currentStyle.color }) }}>
+          {letter}
+        </span>)
     })}
     </main>
 
