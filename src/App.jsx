@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Keyboard from './Components/Keyboard';
+import "./app.css";
 
 function App() {
   const [textArr, setTextArr] = useState([]);
